@@ -1,18 +1,19 @@
+var PORT = 5000
+
 var express = require('express')
-var aplicacion = express()
+var aplication = express();
 
-const net = require('net')
-const server = require('http').Server(aplicacion)
+const net=require('net')
+const server = require('http').Server(aplication)
 const socket = require('socket.io')(server)
-const {StringDecoder} = require('string_decoder')
-const decoder = new StringDecoder('utf8')
+    const {StringDecoder} = require('string_decoder')
+    const decoder = new StringDecoder('utf8')
 
-var HOST = "marcelo1102.ddns.net"
-var PORT = 4000
+var HOST = "maniac1102.ddns.net"
 
 var ser = net.createServer(function(so){
 
-    console.log('Usuario Nuevo ' + so.remoteAddress + ':' + so.remotePort)
+    console.log('Nuevo Usuario ' + so.remoteAddress + ':' + so.remotePort)
 
     so.on('data',function(data){
         var cent = data
@@ -27,5 +28,5 @@ var ser = net.createServer(function(so){
 })
 
 ser.listen(PORT,function(){
-    console.log("servidor activo ")
+    console.log("server up")
 })
